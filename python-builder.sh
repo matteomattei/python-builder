@@ -40,7 +40,7 @@ dependencies() {
 		wget
 		libreadline-dev
 		libncurses5-dev
-		libssl1.0.0
+		libssl-dev
 		tk8.5-dev
 		zlib1g-dev
 		liblzma-dev
@@ -196,7 +196,8 @@ elif [ "${branch:0:3}" = "2.7" ]; then
 	if grep -Eiq 'lucid' /etc/lsb-release 2> /dev/null; then dep="python2.6"
 	else dep="python2.7"; fi
 fi
-sudo -p "Dependencies installation - please provide your password: " apt-get build-dep ${dep} && dependencies
+sudo -p "Dependencies installation - please provide your password: " apt-get build-dep ${dep}
+dependencies
 
 # dir checks
 TMP_BUILD_FOLDER="${HOME}/python_build"
